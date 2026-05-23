@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Taxi Admin</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+  </head>
+  <body>
+    <div id="login-view" class="login-shell">
+      <form id="login-form" class="panel login-panel" novalidate>
+        <p class="eyebrow">Admin</p>
+        <h1>Sign in</h1>
+        <label>Username<input name="username" autocomplete="username" required></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+        <div id="login-message" class="message" aria-live="polite"></div>
+        <button class="primary" type="submit">Sign in</button>
+      </form>
+    </div>
+
+    <div id="app-view" class="app-shell hidden">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Taxi Admin</p>
+          <h1>Dispatch</h1>
+        </div>
+        <nav>
+          <button data-section="dashboard" class="nav-item active">Dashboard</button>
+          <button data-section="appointments" class="nav-item">Appointments</button>
+          <button data-section="clients" class="nav-item">Clients</button>
+        </nav>
+        <button id="logout-button" class="ghost">Sign out</button>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Management</p>
+            <h2 id="section-title">Dashboard</h2>
+          </div>
+          <div class="search-row">
+            <input id="global-search" placeholder="Search clients, phones, addresses">
+            <select id="status-filter">
+              <option value="">All statuses</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="in_progress">In progress</option>
+              <option value="completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
+              <option value="no_show">No show</option>
+            </select>
+          </div>
+        </header>
+        <div id="app-message" class="message app-message" aria-live="polite"></div>
+
+        <section id="dashboard" class="section active">
+          <div class="stats-grid">
+            <article><span>Total rides</span><strong id="stat-total">0</strong></article>
+            <article><span>Completed revenue</span><strong id="stat-revenue">€0.00</strong></article>
+            <article><span>Pending</span><strong id="stat-pending">0</strong></article>
+            <article><span>Completed</span><strong id="stat-completed">0</strong></article>
+          </div>
+          <div class="panel">
+            <h3>Revenue by month</h3>
+            <div id="monthly-revenue" class="bars"></div>
+          </div>
+        </section>
+
+        <section id="appointments" class="section">
+          <div class="section-actions">
+            <h3>Appointments</h3>
+            <button id="new-appointment" class="primary">Add appointment</button>
+          </div>
+          <div id="appointments-list" class="data-list"></div>
+        </section>
+
+        <section id="clients" class="section">
+          <div class="section-actions">
+            <h3>Clients</h3>
+            <button id="new-client" class="primary">Add client</button>
+          </div>
+          <div id="clients-list" class="data-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="modal">
+      <form id="modal-form" method="dialog" class="modal-form"></form>
+    </dialog>
+
+    <script src="/static/js/admin.js"></script>
+  </body>
+</html>

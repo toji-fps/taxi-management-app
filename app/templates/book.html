@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book a Taxi</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+  </head>
+  <body class="public-page">
+    <main class="booking-shell">
+      <section class="booking-intro">
+        <p class="eyebrow">Taxi booking</p>
+        <h1>Request your ride</h1>
+        <p>Send your trip details and the dispatch team will confirm your appointment.</p>
+      </section>
+
+      <section class="panel">
+        <form id="booking-form" class="form-grid" novalidate>
+          <label>Name<input name="name" autocomplete="name" required></label>
+          <label>Phone<input name="phone" autocomplete="tel" required></label>
+          <label class="span-2">Pickup address<input name="pickup_address" autocomplete="street-address" required></label>
+          <label class="span-2">Destination<input name="destination" required></label>
+          <label>Date<input name="date" type="date" required></label>
+          <label>Time<input name="time" type="time" required></label>
+          <label>Passengers<input name="passenger_count" type="number" min="1" max="99" value="1" required></label>
+          <label class="span-2">Notes<textarea name="notes" rows="4"></textarea></label>
+          <div id="booking-message" class="message span-2" aria-live="polite"></div>
+          <button class="primary span-2" type="submit">Submit booking</button>
+        </form>
+      </section>
+    </main>
+    <script src="/static/js/book.js"></script>
+  </body>
+</html>
